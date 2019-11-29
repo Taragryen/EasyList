@@ -23,9 +23,6 @@ let pool = mysql.createPool({
 //导入第三方模块：express, 创建基于Node.js的web服务器
 let express = require('express')
 let session = require('express-session') //导入session模块
-let cookieParser = require('cookie-parser') //导入cookie模块
-let path = require('path') //导入路径模块
-let fs = require('fs') //导入文件模块
 
 //调用第三方模块提供的功能
 let server = express()
@@ -54,12 +51,11 @@ server.get('/index.html',function(req,res,next){
 })
 
 //session设置
-server.use(cookieParser('odraciR')) //密钥(自己规定)
 server.use(session({
+    name: 'session-id',
     secret: 'odraciR',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: false
 }))
 
 //使用express提供的中间件：处理post请求中的主体数据，保存在req.body属性中
@@ -219,6 +215,7 @@ server.post('/user/register',function(req,res){
 
 //API 2.2 用户登录
 server.post('/user/login',function(req,res){
+    let s = req.session
     let output = { "code":200, "msg":"登录成功~" }
     //读取客户端提交的数据
     let obj = req.body
@@ -264,14 +261,13 @@ server.post('/user/login',function(req,res){
         if(output.code == 200)
         {
             req.session.loginUserInfo = email
-            console.log(req.session.loginUserInfo)
-            // //返回一个session给浏览器
-            // sess.loginUserInfo = email
-            // //设置cookie
-            // res.cookie('loginemail',email, {maxAge:100000}); //有效期以毫秒为单位
-            // // res.redirect('http://www.xinlizhiyouni.com:80/advertise/add.html');
+            console.log("loginUserInfo : "+s.loginUserInfo)
+            //设置cookie
+            res.cookie('loginUserInfo',email, {maxAge:100000}); //有效期以毫秒为单位
         }
-        res.json(output)
+        res.send(s)
+        // res.json(output)
+        
     })
     
 })
