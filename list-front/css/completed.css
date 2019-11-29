@@ -1,0 +1,53 @@
+.task
+{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(219, 155, 155, 0.5);
+    padding: 5px;
+}
+
+.task svg
+{
+    float: right;
+}
+
+.middle {
+    position: absolute;
+    top: 0%;
+    left: 97%;
+    transform: translate(-50%,-50%);
+}
+
+.sm-container {
+    text-align: center;
+}
+
+.sm-container svg {
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.sm-container svg:hover {
+    transform: scale(1.2);
+    outline: none;
+}
+
+
+.sm-menu {
+    background: #9fdeaf;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+}
+
+.sm-menu::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: #9fdeaf;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link rel="icon" href="img/icon-one.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon-one.ico" type="image/x-icon">
+</head>
+
+<script>
+    //预加载动画显示淡出
+    document.onreadystatechange=function(){
+        console.log(document.readyState);
+        if(document.readyState=="complete")
+        { 
+            //设置延迟时间
+            // setTimeout( ()=> {
+            //     $(".loading").fadeOut(1000);
+            //     $('#app').fadeIn(2000);
+            //     $('#app2').fadeIn(2000);
+            //     $('#app3').fadeIn(2000);
+            // },800)
+            $(".loading").fadeOut(1000);
+            $('#app').fadeIn(2000);
+            $('#app2').fadeIn(2000);
+            $('#app3').fadeIn(2000);
+        }
+    } 
+</script>
+
+<body>
+    
+    <!-- 预加载动画 -->
+    <div class="loading">
+        <div class="pic">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+
+    <svg class="goo-filter" viewBox="0 0 1 1">
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 50 -20" result="goo" />
+        </filter>
+    </svg>
+
+    <!-- 页头 -->
+    <header>
+        <div class="list-top">
+            <!-- <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    
+                </div>
+            </div> -->
+            <div class="page-header">
+                <h1>Lorem ipsum dolor sit amet.<small>Lorem ipsum dolor sit amet.</small></h1>
+                <div class="middle">
+                    <div class="sm-container">
+                        <i class="show-btn">
+                            <svg t="1574841728457" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7043" width="32" height="32"><path d="M384 320l512 0c38.4 0 64-25.6 64-64 0-38.4-25.6-64-64-64L384 192C345.6 192 320 217.6 320 256 320 294.4 345.6 320 384 320zM896 448 384 448C345.6 448 320 473.6 320 512c0 38.4 25.6 64 64 64l512 0c38.4 0 64-25.6 64-64C960 473.6 934.4 448 896 448zM896 704 384 704c-38.4 0-64 25.6-64 64 0 38.4 25.6 64 64 64l512 0c38.4 0 64-25.6 64-64C960 729.6 934.4 704 896 704zM128 192C89.6 192 64 217.6 64 256c0 38.4 25.6 64 64 64s64-25.6 64-64C192 217.6 166.4 192 128 192zM128 448C89.6 448 64 473.6 64 512c0 38.4 25.6 64 64 64s64-25.6 64-64C192 473.6 166.4 448 128 448zM128 704c-38.4 0-64 25.6-64 64 0 38.4 25.6 64 64 64s64-25.6 64-64C192 729.6 166.4 704 128 704z" p-id="7044"></path></svg>
+                        </i>
+                        <div class="sm-menu">
+                            <i style="outline: none;">
+                                <svg data-toggle="modal" data-target=".bs-example-modal-sm" id="add-btn" t="1574841646139" class="icon" viewBox="0 0 1124 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1294" width="32" height="32"><path d="M102.385204 103.006618v1.36119l32.254299-1.538737H102.385204z m768.421674-0.591822l-677.192314 0.325502C118.364398 104.870857 103.568848 126.886635 103.568848 204.711227l-1.183644-47.020257 0.26632 685.655367c3.935616 61.608669 25.773848 78.002138 103.243347 78.002139l-103.154573-0.680596v1.094871l818.93368-0.414275-0.177547-94.98743-0.591822 94.218061-103.243346 0.769369c86.198873 0 103.568848-20.151539 103.864759-100.609739L921.259702 562.230891a51.192602 51.192602 0 1 1 102.385205 0l0.207138 307.747436h-0.355094v51.192602a102.385204 102.385204 0 0 1-102.385204 102.385205H867.019217l-710.186389 0.295911v-0.355094H102.385204a102.237249 102.237249 0 0 1-101.970929-97.650628L0 101.882156A102.059702 102.059702 0 0 1 97.650629 0.414275L870.895651 0a51.192602 51.192602 0 1 1 0 102.385204z m234.657419 118.364398L529.680682 799.226008a71.255368 71.255368 0 1 1-100.609738-100.609739L1004.795376 120.139864a71.255368 71.255368 0 0 1 100.609739 100.609739z" p-id="1295"></path></svg>
+                            </i>
+                            <i>
+                                <svg id="delete-btn" t="1574841839862" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8214" width="32" height="32"><path d="M844.8 326.4c-19.2 0-38.4 19.2-38.4 38.4v550.4c0 19.2-19.2 38.4-38.4 38.4H256c-19.2 0-38.4-19.2-38.4-38.4V364.8c0-19.2-12.8-38.4-38.4-38.4-19.2 0-38.4 19.2-38.4 38.4v550.4c6.4 57.6 51.2 108.8 115.2 108.8h512c64 0 115.2-51.2 115.2-115.2V364.8c0-19.2-19.2-38.4-38.4-38.4z m-409.6 435.2V364.8c0-19.2-12.8-38.4-38.4-38.4-19.2 0-38.4 19.2-38.4 38.4V768c0 19.2 12.8 38.4 38.4 38.4 25.6-6.4 38.4-19.2 38.4-44.8z m224 0V364.8c0-19.2-19.2-38.4-38.4-38.4s-38.4 19.2-38.4 38.4V768c0 19.2 19.2 38.4 38.4 38.4 19.2-6.4 38.4-19.2 38.4-44.8z m326.4-582.4h-179.2V108.8c0-57.6-51.2-108.8-108.8-108.8H326.4c-64 0-108.8 44.8-108.8 108.8v76.8H38.4c-19.2-6.4-38.4 12.8-38.4 32s19.2 32 38.4 32h947.2c19.2 0 38.4-12.8 38.4-32s-19.2-38.4-38.4-38.4z m-256 0H288V108.8c0-19.2 19.2-38.4 38.4-38.4h371.2c19.2 0 32 12.8 32 38.4v70.4z m0 0" fill="#000000" p-id="8215"></path></svg>
+                            </i>
+                            <i>
+                                <svg id="out-btn" t="1574841549824" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4846" width="32" height="32"><path d="M154.497753 1017.014356a123.188603 123.188603 0 0 1-120.635616-118.72789v-771.50685A124.002192 124.002192 0 0 1 154.497753 7.013699h509.082302a124.535233 124.535233 0 0 1 121.252822 119.765917v98.191781a38.912 38.912 0 0 1-77.795945 0v-98.191781a47.300384 47.300384 0 0 0-43.625206-42.082191H154.497753a46.795397 46.795397 0 0 0-43.064109 42.082191v771.50685a45.813479 45.813479 0 0 0 43.064109 41.072219h508.829809a46.318466 46.318466 0 0 0 43.569096-41.072219v-101.193644a38.940055 38.940055 0 1 1 77.852054 0v101.193644a123.777753 123.777753 0 0 1-121.308931 118.72789z m637.320768-316.009205a38.603397 38.603397 0 0 1 0-54.903233l111.573917-111.489754a31.477479 31.477479 0 0 0 9.089754-22.023013 30.860274 30.860274 0 0 0-9.089754-21.798576l-111.573917-111.770301a38.799781 38.799781 0 0 1 54.903232-54.819069l111.573918 111.573918a108.908712 108.908712 0 0 1 0 153.768329l-111.573918 111.489753a38.26674 38.26674 0 0 1-27.465643 11.446357 38.883945 38.883945 0 0 1-27.353425-11.502466z m-324.369535-150.121206a38.940055 38.940055 0 0 1 0-77.852055h285.036713a38.940055 38.940055 0 0 1 0 77.852055z" p-id="4847"></path></svg>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体 -->
+    <div class="list-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <!-- 上午清单 -->
+                    <div id="morning" style="margin-top: 30px; margin-left: auto; margin-right: auto;">
+                        <main id="app">
+                    
+                            <section class="backgrounds" id="app-section1">
+                                <div 
+                                    class="background"
+                                    data-active="true"  
+                                    style="--primary: var(--green); --secondary: var(--cyan)">
+                                </div>
+                            </section>
+                        
+                            <section class="content" id="app-section2">
+                                <article data-active="true" class="article">
+                                    <header>
+                                        <h1>上午</h1>
+                                        <h1>清单</h1>
+                                    </header>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dignissimos corporis dolor.</p>
+                                </article>
+                                
+                            </section>
+                        </main>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <!-- 下午清单 -->
+                    <div id="afternoon" style="margin-top: 30px; margin-left: auto; margin-right: auto;">
+                        <main id="app2">
+                    
+                            <section class="backgrounds" id="app2-section1">
+                                <div 
+                                    class="background"
+                                    data-active="true"  
+                                    style="--primary: var(--pink); --secondary: var(--orange)">
+                                </div>
+                            </section>
+                        
+                            <section class="content" id="app2-section2">
+                                <article data-active="true" class="article">
+                                    <header>
+                                        <h1>下午</h1>
+                                        <h1>清单</h1>
+                                    </header>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dignissimos corporis dolor.</p>
+                                </article>
+                                
+                            </section>
+                        </main>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                        <div id="evening" style="margin-top: 30px; margin-left: auto; margin-right: auto;">
+                            <main id="app3">
+                                <section class="backgrounds3" id="app3-section1">
+                                    <div 
+                                        class="background3"
+                                        data-active="true"  
+                                        style="--primary: var(--deep-blue); --secondary: var(--deeper-blue)">
+                                    </div>
+                                </section>
+                            
+                                <section class="content" id="app3-section2">
+                                    <article data-active="true" class="article3">
+                                            <header>
+                                                <h1>晚上</h1>
+                                                <h1>清单</h1>
+                                            </header>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dignissimos corporis dolor.</p>
+                                    </article>
+                                </section>
+                            </main>
+                        </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div style="margin-top: 30px; margin-left: auto; margin-right: auto;height: 530px;overflow: auto;">
+                        <h3>Completed<span class="badge">0</span></h3>
+                        <div class="completed"> 
+                           <div class="task" style="vertical-align: middle;text-align: center;margin-top: 10px;">
+                                <span style="font-size: 25px;">task</span>
+                                <span style="font-size: 25px;">task</span>
+                                <svg t="1574763702056" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1146" width="32" height="32"><path d="M683.1 328.1c16 16 16 41.9 0 57.9L375.8 693.3c-16 16-41.9 16-57.9 0s-16-41.9 0-57.9l307.2-307.2c16-16.1 42-16.1 58-0.1z" fill="#ffffff" p-id="1147"></path><path d="M683.1 693.3c-16 16-41.9 16-57.9 0L317.9 386.1c-16-16-16-41.9 0-57.9s41.9-16 57.9 0L683 635.4c16 16 16 41.9 0.1 57.9z" fill="#ffffff" p-id="1148"></path><path d="M108.5 687.4m-40.9 0a40.9 40.9 0 1 0 81.8 0 40.9 40.9 0 1 0-81.8 0Z" fill="#ffffff" p-id="1149"></path><path d="M253.6 862.6m-40.9 0a40.9 40.9 0 1 0 81.8 0 40.9 40.9 0 1 0-81.8 0Z" fill="#ffffff" p-id="1150"></path><path d="M499.2 42.6C239.9 42.6 29.8 252.7 29.8 512c0 69 14.9 134.6 41.7 193.6l74.2-35.4C124.1 621.8 112 568.3 112 512c0-213.8 173.3-387.2 387.2-387.2S886.3 298.1 886.3 512 713 899.1 499.2 899.1c-81.9 0-157.9-25.4-220.4-68.8l-51.2 57.2c1.5 0.7 2.5 2.1 2.5 3.6s0.3 3.2-1.2 3.9c76.7 54.5 169.2 86.2 270.4 86.2 259.2 0 469.4-210.1 469.4-469.4S758.4 42.6 499.2 42.6z" fill="#ffffff" p-id="1151"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页尾 -->
+    <div class="list-footer">
+        <div class="container">
+            <div class="col-xs-12">
+                <div class="text-center" style="display: none;" id="test">
+                    @2019 He's got a big crush on you !
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 模态框 -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Add</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="title">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-lg-6">
+                                        <label>hour</label>
+                                        <input type="number" class="form-control" id="hour" placeholder="time" max="23" min="6">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>minute</label>
+                                        <input type="number" class="form-control" id="minute" placeholder="time" max="59" min="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>detail</label>
+                                    <textarea class="form-control" id="detail" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="addbtn">Save changes</button>
+                        </div>
+                </div>
+            </div>
+            </div>
+</body>
+
+
+<link rel="stylesheet" href="css/allList.css">
+<link rel="stylesheet" href="css/loading.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/completed.css">
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/allList.js"></script>
+
+</html>

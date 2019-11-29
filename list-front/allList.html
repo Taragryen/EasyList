@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="img/icon-one.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon-one.ico" type="image/x-icon">
+</head>
+
+<script>
+    //预加载动画显示淡出
+    document.onreadystatechange=function(){
+    console.log(document.readyState);
+    if(document.readyState=="complete")
+    { 
+        //设置延迟时间
+        // setTimeout( ()=> {
+        //     $(".loading").fadeOut(1000);
+        //     $('#app').fadeIn(2000);
+        //     $('#app2').fadeIn(2000);
+        //     $('#app3').fadeIn(2000);
+        // },800)
+        $(".loading").fadeOut(1000);
+        $('#app').fadeIn(2000);
+        $('#app2').fadeIn(2000);
+        $('#app3').fadeIn(2000);
+    }
+} 
+</script>
+
+<body>
+
+    <!-- 预加载动画 -->
+    <div class="loading">
+        <div class="pic">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+
+    <svg class="goo-filter" viewBox="0 0 1 1">
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 50 -20" result="goo" />
+        </filter>
+    </svg>
+
+    <!-- 上午清单 -->
+    <div id="morning" style="float: left;clear: both;margin-top: 30px;">
+        <main id="app">
+    
+            <section class="backgrounds" id="app-section1">
+                <div 
+                    class="background"
+                    data-active="true"  
+                    style="--primary: var(--green); --secondary: var(--cyan)">
+                </div>
+            </section>
+        
+            <section class="content" id="app-section2">
+                <article data-active="true" class="article">
+                    <header>
+                        <h1>上午</h1>
+                        <h1>清单</h1>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dignissimos corporis dolor.</p>
+                </article>
+                
+            </section>
+        </main>
+    </div>
+
+    <!-- 下午清单 -->
+    <div id="afternoon" style="float: left;clear: both;">
+        <main id="app2">
+    
+            <section class="backgrounds2" id="app2-section1">
+                <div 
+                    class="background2"
+                    data-active="true"  
+                    style="--primary: var(--pink); --secondary: var(--orange)">
+                </div>
+            </section>
+        
+            <section class="content" id="app2-section2">
+                <article data-active="true" class="article2">
+                    <header>
+                        <h1>下午</h1>
+                        <h1>清单</h1>
+                    </header>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <!-- 晚上清单 -->
+    <div id="evening" style="float: left;clear: both;">
+        <main id="app3">
+            <section class="backgrounds3" id="app3-section1">
+                <div 
+                    class="background3"
+                    data-active="true"  
+                    style="--primary: var(--pink); --secondary: var(--orange)">
+                </div>
+            </section>
+        
+            <section class="content" id="app3-section2">
+                <article class="article3">
+                        <header>
+                            <h1>晚上</h1>
+                            <h1>清单</h1>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dignissimos corporis dolor.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm">
+            添加
+    </button>
+          
+
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Add</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>title</label>
+                            <input type="text" class="form-control" id="title" placeholder="title">
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-6">
+                                <label>hour</label>
+                                <input type="number" class="form-control" id="hour" placeholder="time" max="23" min="6">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>minute</label>
+                                <input type="number" class="form-control" id="minute" placeholder="time" max="59" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>detail</label>
+                            <textarea class="form-control" id="detail" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="addbtn">Save changes</button>
+                </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+
+<link rel="stylesheet" href="css/allList.css">
+<link rel="stylesheet" href="css/loading.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<script src="js/jquery-3.4.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/allList.js"></script>
+
+</html>
