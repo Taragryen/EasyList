@@ -1,8 +1,8 @@
 $(window).on("load",function(){
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
-  let loginUserEmail = '2429747506@qq.com'
-  // let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  // let loginUserEmail = '2429747506@qq.com'
+  let loginUserEmail = '20172005046@m.scnu.edu.cn'
   if(loginUserEmail)
   {
     this.flash()
@@ -18,7 +18,8 @@ $(window).on("load",function(){
 $("#addbtn").click(function(){
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
-  let loginUserEmail = '2429747506@qq.com'
+  // let loginUserEmail = '2429747506@qq.com'
+  let loginUserEmail = '20172005046@m.scnu.edu.cn'
   var title = $("#title").val()
   var hour = $("#hour").val()
   var minute = $("#minute").val()
@@ -100,8 +101,8 @@ function flash()
 {
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
-  let loginUserEmail = '2429747506@qq.com'
-  // let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  // let loginUserEmail = '2429747506@qq.com'
+  let loginUserEmail = '20172005046@m.scnu.edu.cn'
   $.ajax({
     method: 'get',
     url: 'http://127.0.0.1:5050/user/list',
@@ -313,6 +314,10 @@ $(".close").click(function(){
   $(".modal").fadeOut("fast")
 })
 
+$("#deleteAll-btn").click(function(){
+  deleteAll()
+})
+
 function finished(pid)
 {
   $.ajax({
@@ -359,17 +364,17 @@ function AllFinished()
 {
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
-  let loginUserEmail = '2429747506@qq.com'
-  // let loginUserEmail = '20172005046@m.scnu.edu.cn
+  // let loginUserEmail = '2429747506@qq.com'
+  let loginUserEmail = '20172005046@m.scnu.edu.cn'
   $.ajax({
     method: 'GET',
     url: 'http://127.0.0.1:5050/user/allfinished',
     data: `email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
+      let str = ''
       if(data.length!=0)
       {
-        let str = ''
         console.log('异步请求已完成列表API成功：')
         for(var i=0;i<data.length;i++)
         {
@@ -381,14 +386,37 @@ function AllFinished()
                     </button>
                   </div>`
         }
-        $(".completed").html(str)
-        $(".badge").text(data.length)
       }
-      
+      $(".badge").text(data.length)
+      $(".completed").html(str)
     },
     error:function(xhr,err)
     {
       console.log('异步请求已完成列表API失败：')
+      alert(err)
+    }
+  })
+}
+
+function deleteAll()
+{
+  let key =sessionStorage.key('loginUserEmail')
+  // let loginUserEmail = sessionStorage.getItem(key)
+  // let loginUserEmail = '2429747506@qq.com'
+  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  $.ajax({
+    method: 'GET',
+    url: 'http://127.0.0.1:5050/user/deleteAll',
+    data: `email=${loginUserEmail}`,
+    success:function(data,msg,xhr)
+    {
+      alert(data.msg)
+      flash()
+      AllFinished()
+    },
+    error:function(xhr,err)
+    {
+      console.log('异步请求删除全部API失败：')
       alert(err)
     }
   })

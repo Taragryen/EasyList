@@ -265,8 +265,8 @@ server.post('/user/login',function(req,res){
             //设置cookie
             res.cookie('loginUserInfo',email, {maxAge:100000}); //有效期以毫秒为单位
         }
-        res.send(s)
-        // res.json(output)
+        // res.send(s)
+        res.json(output)
         
     })
     
@@ -386,7 +386,18 @@ server.get('/user/allfinished',function(req,res){
         else
         {
             //没有清单则返回空对象
-            res.json({})
+            res.json(output)
         }
+    })
+})
+
+//API 删除所有
+server.get('/user/deleteAll',function(req,res){
+    let output = {"code": 200,"msg": "已全部删除~"}
+    let email = req.query.email
+    let sql = 'DELETE FROM list_pages WHERE email=?'
+    pool.query(sql,[email],function(err,result){
+        if(err)throw err
+        res.json(output)
     })
 })
