@@ -286,7 +286,7 @@ p {
   border-radius: 4px;
   z-index: 2000;
   width: 300px;
-  height: 350px;
+  height: 400px;
   position: fixed;
   display: none;
   /* top: 20px; */
@@ -339,13 +339,17 @@ p {
 .control-button.up{
   background-color: var(--green);
   position: absolute;
-  top: 260px;
+  top: 310px;
 }
 
 .control-button.in{
   background-color: var(--cyan);
   position: absolute;
-  top: 260px;
+  top: 310px;
   right: 0px;
+}
+
+code {
+  display: inline-block;
 }
 

@@ -499,3 +499,10 @@ function deleteAll()
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+function tag(obj)
+{
+  let value = $(obj).text()
+  console.log(value)
+  $("#title").val(value)
+}
