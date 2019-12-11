@@ -15,7 +15,7 @@ $(window).on("load",function(){
   } 
 })
 
-$("#addbtn").click(function(){
+$("#confirm-btn").click(function(){
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
   // let loginUserEmail = '2429747506@qq.com'
@@ -27,25 +27,25 @@ $("#addbtn").click(function(){
   var detail = $("#detail").val()
   if(title.length == 0)
   {
-    alert("请输入标题~")
+    $.growl.warning({message: "请输入标题~" });
     $("#title").focus()
     return
   }
   if(hour.length == 0)
   {
-    alert("请输入时间~")
+    $.growl.warning({message: "请输入时间~" });
     $("#hour").focus()
     return
   }
   if(minute.length == 0)
   {
-    alert("请输入时间~")
+    $.growl.warning({message: "请输入时间~" });
     $("#minute").focus()
     return
   }
   if(detail.length == 0)
   {
-    alert("请输入描述~")
+    $.growl.warning({message: "请输入描述~" });
     $("#detail").focus()
     return
   }
@@ -57,7 +57,7 @@ $("#addbtn").click(function(){
     success:function(data,msg,xhr)
     {
       console.log('异步请求添加API成功：')
-      alert(data.msg)
+      $.growl.notice({message: data.msg });
       $("#title").val("")
       $("#detail").val("")
       $("#hour").val("")
@@ -67,7 +67,7 @@ $("#addbtn").click(function(){
     error:function(xhr,err)
     {
       console.log('异步请求登录API失败：')
-      alert(err)
+      $.growl.error({err});
     }
   })
 })
@@ -149,6 +149,9 @@ function flash()
                         <button type="button" class="finished" onclick="finished(${data.list[i].pid})">
                           <svg t="1574763739071" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2091" width="32" height="32"><path d="M12.8 512c0 275.2512 223.9488 499.2 499.2 499.2s499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968 38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512z" fill="#ffffff" p-id="2092"></path><path d="M285.7472 466.7392a38.4 38.4 0 1 0-54.3232 54.3232l180.992 180.992a38.2976 38.2976 0 0 0 54.272 0l325.8368-325.7856a38.4 38.4 0 1 0-54.3232-54.3232l-298.7008 298.6496-153.7536-153.856z" fill="#ffffff" p-id="2093"></path></svg>
                         </button>
+                        <button type="button" class="delete" onclick="deleteone(${data.list[i].pid})">
+                          <svg t="1575900448704" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1833" width="32" height="32"><path d="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z" fill="#ffffff" p-id="1834"></path><path d="M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" fill="#ffffff" p-id="1835"></path></svg>                        
+                        </button>
                       </article>`
             
           }
@@ -166,6 +169,9 @@ function flash()
                         <button type="button" class="finished" onclick="finished(${data.list[i].pid})">
                           <svg t="1574763739071" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2091" width="32" height="32"><path d="M12.8 512c0 275.2512 223.9488 499.2 499.2 499.2s499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968 38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512z" fill="#ffffff" p-id="2092"></path><path d="M285.7472 466.7392a38.4 38.4 0 1 0-54.3232 54.3232l180.992 180.992a38.2976 38.2976 0 0 0 54.272 0l325.8368-325.7856a38.4 38.4 0 1 0-54.3232-54.3232l-298.7008 298.6496-153.7536-153.856z" fill="#ffffff" p-id="2093"></path></svg>
                         </button>
+                        <button type="button" class="delete" onclick="deleteone(${data.list[i].pid})">
+                          <svg t="1575900448704" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1833" width="32" height="32"><path d="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z" fill="#ffffff" p-id="1834"></path><path d="M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" fill="#ffffff" p-id="1835"></path></svg>                        
+                        </button>
                       </article>`
           }
           if(data.list[i].time >= 1800 && data.list[i].time < 2400)
@@ -180,7 +186,11 @@ function flash()
                         <p>${data.list[i].detail}</p>
                         <p style="display:none">${data.list[i].pid}</p>
                         <button type="button" class="finished" onclick="finished(${data.list[i].pid})">
-                          <svg t="1574763739071" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2091" width="32" height="32"><path d="M12.8 512c0 275.2512 223.9488 499.2 499.2 499.2s499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968 38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512z" fill="#ffffff" p-id="2092"></path><path d="M285.7472 466.7392a38.4 38.4 0 1 0-54.3232 54.3232l180.992 180.992a38.2976 38.2976 0 0 0 54.272 0l325.8368-325.7856a38.4 38.4 0 1 0-54.3232-54.3232l-298.7008 298.6496-153.7536-153.856z" fill="#ffffff" p-id="2093"></path></svg>                        </button>
+                          <svg t="1574763739071" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2091" width="32" height="32"><path d="M12.8 512c0 275.2512 223.9488 499.2 499.2 499.2s499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968 38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512z" fill="#ffffff" p-id="2092"></path><path d="M285.7472 466.7392a38.4 38.4 0 1 0-54.3232 54.3232l180.992 180.992a38.2976 38.2976 0 0 0 54.272 0l325.8368-325.7856a38.4 38.4 0 1 0-54.3232-54.3232l-298.7008 298.6496-153.7536-153.856z" fill="#ffffff" p-id="2093"></path></svg>                        
+                        </button>
+                        <button type="button" class="delete" onclick="deleteone(${data.list[i].pid})">
+                          <svg t="1575900448704" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1833" width="32" height="32"><path d="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z" fill="#ffffff" p-id="1834"></path><path d="M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" fill="#ffffff" p-id="1835"></path></svg>                        
+                        </button>
                       </article>`
           }
         }
@@ -307,15 +317,49 @@ $(".show-btn").click(function(){
 })
 
 $("#add-btn").click(function(){
-  $(".modal").fadeIn("fast")
+  $(".mymodal").fadeIn("fast")
+  $("#cover").css('display','block')
 })
 
-$(".close").click(function(){
-  $(".modal").fadeOut("fast")
+$("#close-btn").click(function(){
+  $(".mymodal").fadeOut("fast")
+  $("#cover").css('display','none')
 })
 
 $("#deleteAll-btn").click(function(){
   deleteAll()
+})
+
+$("#hour").blur(function(){
+  if($("#hour").val() != '')
+  {
+    if($("#hour").val()>23 || $("#hour").val()<6)
+    {
+      $.growl.error({message: '请输入正确的时间格式~'})
+      $("#hour").css('border','1px solid red')
+      $("#hour").focus()
+    }
+    else
+    {
+      $("#hour").css('border','1px solid #ccc')
+    }
+  } 
+})
+
+$("#minute").blur(function(){
+  if($("#minute").val() != '')
+  {
+    if($("#minute").val()>59 || $("#minute").val()<0)
+    {
+      $.growl.error({message: '请输入正确的时间格式~'})
+      $("#minute").css('border','1px solid red')
+      $("#minute").focus()
+    }
+    else
+    {
+      $("#minute").css('border','1px solid #ccc')
+    }
+  } 
 })
 
 function finished(pid)
@@ -327,14 +371,14 @@ function finished(pid)
     success:function(data,msg,xhr)
     {
       console.log('异步请求完成API成功：')
-      alert(data.msg)
+      $.growl.notice({message: data.msg });
       flash()
       AllFinished()
     },
     error:function(xhr,err)
     {
       console.log('异步请求完成API失败：')
-      alert(err)
+      $.growl.notice({err});
     }
   })
 }
@@ -348,14 +392,34 @@ function unfinished(pid)
     success:function(data,msg,xhr)
     {
       console.log('异步请求未完成API成功：')
-      alert(data.msg)
+      $.growl.notice({message: data.msg });
       flash()
       AllFinished()
     },
     error:function(xhr,err)
     {
       console.log('异步请求未完成API失败：')
-      alert(err)
+      $.growl.notice({err});
+    }
+  })
+}
+
+function deleteone(pid)
+{
+  $.ajax({
+    method: 'GET',
+    url: 'http://127.0.0.1:5050/user/delete',
+    data: `pid=${pid}`,
+    success:function(data,msg,xhr)
+    {
+      console.log('异步请求删除API成功：')
+      $.growl.notice({message: data.msg });
+      flash()
+    },
+    error:function(xhr,err)
+    {
+      console.log('异步请求删除API失败：')
+      $.growl.notice({err});
     }
   })
 }
@@ -382,10 +446,14 @@ function AllFinished()
                     <span style="font-size: 25px;">${data.list[i].time}</span>
                     <span style="font-size: 25px;">${data.list[i].title}</span>
                     <button type="button" class="unfinished" onclick="unfinished(${data.list[i].pid})">
-                      <svg t="1574763702056" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1146" width="32" height="32"><path d="M683.1 328.1c16 16 16 41.9 0 57.9L375.8 693.3c-16 16-41.9 16-57.9 0s-16-41.9 0-57.9l307.2-307.2c16-16.1 42-16.1 58-0.1z" fill="#ffffff" p-id="1147"></path><path d="M683.1 693.3c-16 16-41.9 16-57.9 0L317.9 386.1c-16-16-16-41.9 0-57.9s41.9-16 57.9 0L683 635.4c16 16 16 41.9 0.1 57.9z" fill="#ffffff" p-id="1148"></path><path d="M108.5 687.4m-40.9 0a40.9 40.9 0 1 0 81.8 0 40.9 40.9 0 1 0-81.8 0Z" fill="#ffffff" p-id="1149"></path><path d="M253.6 862.6m-40.9 0a40.9 40.9 0 1 0 81.8 0 40.9 40.9 0 1 0-81.8 0Z" fill="#ffffff" p-id="1150"></path><path d="M499.2 42.6C239.9 42.6 29.8 252.7 29.8 512c0 69 14.9 134.6 41.7 193.6l74.2-35.4C124.1 621.8 112 568.3 112 512c0-213.8 173.3-387.2 387.2-387.2S886.3 298.1 886.3 512 713 899.1 499.2 899.1c-81.9 0-157.9-25.4-220.4-68.8l-51.2 57.2c1.5 0.7 2.5 2.1 2.5 3.6s0.3 3.2-1.2 3.9c76.7 54.5 169.2 86.2 270.4 86.2 259.2 0 469.4-210.1 469.4-469.4S758.4 42.6 499.2 42.6z" fill="#ffffff" p-id="1151"></path></svg>
+                      <svg t="1575900448704" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1833" width="32" height="32"><path d="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z" fill="#ffffff" p-id="1834"></path><path d="M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" fill="#ffffff" p-id="1835"></path></svg>                        
                     </button>
                   </div>`
         }
+      }
+      else
+      {
+        str += "<span>没有已完成的任务哦~</span>"
       }
       $(".badge").text(data.length)
       $(".completed").html(str)
@@ -393,13 +461,19 @@ function AllFinished()
     error:function(xhr,err)
     {
       console.log('异步请求已完成列表API失败：')
-      alert(err)
+      $.growl.notice({err});
     }
   })
 }
 
 function deleteAll()
 {
+  let truthBeTold = confirm("确定要全部删除吗?")
+  if(!truthBeTold)
+  {
+    //点击了否则返回
+    return
+  }
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
   // let loginUserEmail = '2429747506@qq.com'
@@ -410,14 +484,18 @@ function deleteAll()
     data: `email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
-      alert(data.msg)
+      $.growl.notice({message: data.msg });
       flash()
       AllFinished()
     },
     error:function(xhr,err)
     {
       console.log('异步请求删除全部API失败：')
-      alert(err)
+      $.growl.notice({err});
     }
   })
 }
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

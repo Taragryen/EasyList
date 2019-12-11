@@ -10,6 +10,7 @@
   --deep-purple: #281c4c;
   --deep-blue: #7893a8fb;
   --deeper-blue: #01050a;
+
   --duration: 0.7s;
   --ease: cubic-bezier(0.6, 0, 0.2, 1);
   --transition: transform var(--duration) var(--ease); }
@@ -260,17 +261,91 @@ p {
 .finished {
   background-color: rgba(255, 255, 255, 0); 
   border: 0px; 
-  /* width:60px; 
-  height: 60px; */
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 180px;
+  position:absolute;
+  bottom: 50px;
+  outline: none;
+}
+
+.delete {
+  background-color: rgba(255, 255, 255, 0); 
+  border: 0px; 
+  position:absolute;
+  left: 150px;
+  bottom: 50px;
+  outline: none;
 }
 
 .unfinished {
   background-color: rgba(255, 255, 255, 0); 
   border: 0px; 
-  /* width:50px; 
-  height: 50px; */
+  outline: none;
   float: right;
 }
+
+.mymodal {
+  border-radius: 4px;
+  z-index: 2000;
+  width: 300px;
+  height: 350px;
+  position: fixed;
+  display: none;
+  /* top: 20px; */
+  top: 20px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  background-color: white;
+}
+
+.cover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1500;
+  -moz-opacity: 0.3;
+  opacity: .30;
+  filter: alpha(opacity=30);
+}
+
+.control-button{
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.control-button{
+  border: none;
+  margin-top: 15px;
+}
+
+.control-button:focus{
+  outline:none;
+}
+
+.control-button.up{
+  background-color: var(--green);
+  position: absolute;
+  top: 260px;
+}
+
+.control-button.in{
+  background-color: var(--cyan);
+  position: absolute;
+  top: 260px;
+  right: 0px;
+}
+

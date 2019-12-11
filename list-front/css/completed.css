@@ -14,7 +14,7 @@
 .middle {
     position: absolute;
     top: 0%;
-    left: 97%;
+    right: 1%;
     transform: translate(-50%,-50%);
 }
 
@@ -28,9 +28,8 @@
     transition: 0.4s;
 }
 
-.sm-container svg:hover {
+.sm-menu svg:hover {
     transform: scale(1.2);
-    outline: none;
 }
 
 
@@ -51,3 +50,4 @@
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
 }
+

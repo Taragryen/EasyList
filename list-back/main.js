@@ -401,3 +401,16 @@ server.get('/user/deleteAll',function(req,res){
         res.json(output)
     })
 })
+
+//API 删除单个
+server.get('/user/delete',function(req,res){
+    let output = {"code": 200,"msg": "已删除~"}
+    //读取客户端提交的数据
+    let pid = req.query.pid
+    //执行修改操作
+    let sql = 'DELETE FROM list_pages WHERE pid=?'
+    pool.query(sql,[pid],function(err,result){
+        if(err)throw err
+        res.json(output)
+    })
+})
