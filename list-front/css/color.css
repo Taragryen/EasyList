@@ -1,0 +1,36 @@
+.color {
+    display: inline-block;
+    border-radius: 16px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: 3px solid gainsboro;
+}
+
+.SpringWarmth {
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);    
+}
+
+.WinterNeva {
+    background-image: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.RareWind {
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.FebruaryInk {
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+
+.light {
+    background-color: white;
+}
+
+.dark {
+    background-color: black;
+}
+
+.PerfectWhite {
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+}

@@ -54,7 +54,7 @@
     <header style="z-index: 1000;">
         <div class="list-top">
             <div class="page-header">
-                <h1 style="display: inline; font-family: verdana, sans-serif;font-size: 50px;font-variant: small-caps;">EasyList 简·单</h1><h2 style="display: inline;"><small> 一个简单、高效的ToDoList网站。</small></h2>
+                <h1 style="display: inline; font-family: verdana, sans-serif;font-size: 50px;font-variant: small-caps;">EasyList 简·单</h1><h3 style="display: inline;"><small> 一个简单、高效的ToDoList网站。</small></h3>
                 <div class="middle">
                     <div class="sm-container">
                         <i class="show-btn">
@@ -219,8 +219,8 @@
         </div>
     </div>
     
-    <!-- 自定义模态框 -->
-    <div class="mymodal">
+    <!-- 添加模态框 -->
+    <div class="myModal" id="addModal">
         <form>
             <div class="form-group">
                 <label>title</label>
@@ -258,6 +258,33 @@
         </form>
     </div>
 
+    <!-- 皮肤模态框 -->
+    <div class="myModal" id="themeModal">
+        <form>
+            <div class="form-group">
+                <label style="display: block;">SIDERBAR BACKGROUND</label>
+                <div class="color SpringWarmth" data-name="SpringWarmth"></div>
+                <div class="color WinterNeva" data-name="WinterNeva"></div>
+                <div class="color RareWind" data-name="RareWind"></div>
+                <div class="color FebruaryInk" data-name="FebruaryInk"></div>
+            </div>
+            <div class="form-group">
+                <label style="display: block;">WEB PAGE BACKGROUND</label>
+                <div class="color light" data-name="light"></div>
+                <div class="color dark" data-name="dark"></div>
+                <div class="color PerfectWhite" data-name="PerfectWhite"></div>
+                <div class="color SpringWarmth"></div>
+            </div>
+            <div class="form-group">
+                <label style="display: block;">LIST BACKGROUND</label>
+                <div class="color SpringWarmth"></div>
+                <div class="color SpringWarmth"></div>
+                <div class="color SpringWarmth"></div>
+                <div class="color SpringWarmth"></div>
+            </div>
+        </form>
+    </div>
+
     <!-- 遮罩层 -->
     <div id="cover" class="cover"></div>
 </body>
@@ -268,6 +295,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/completed.css">
 <link rel="stylesheet" href="css/jquery.growl.css">
+<link rel="stylesheet" href="css/color.css">
 <script src="js/jquery-3.4.1.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/allList.js"></script>

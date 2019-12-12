@@ -34,7 +34,8 @@
 
 
 .sm-menu {
-    background: #9fdeaf;
+    /* background: #9fdeaf; */
+    background-image: linear-gradient(to bottom, #9fdeaf 0%, #96dbe2 100%);
     position: absolute;
     border-radius: 5px;
     display: none;

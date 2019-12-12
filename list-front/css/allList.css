@@ -282,7 +282,7 @@ p {
   float: right;
 }
 
-.mymodal {
+.myModal {
   border-radius: 4px;
   z-index: 2000;
   width: 300px;
@@ -361,4 +361,5 @@ code {
 code:hover {
   transform: scale(1.1);
 }
+
 

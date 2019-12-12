@@ -317,13 +317,23 @@ $(".show-btn").click(function(){
 })
 
 $("#add-btn").click(function(){
-  $(".mymodal").fadeIn("fast")
+  $("#addModal").fadeIn("fast")
+  $("#cover").css('display','block')
+})
+
+$("#theme-btn").click(function(){
+  $("#themeModal").fadeIn("fast")
   $("#cover").css('display','block')
 })
 
 $("#close-btn").click(function(){
-  $(".mymodal").fadeOut("fast")
+  $("#addModal").fadeOut("fast")
+  $("#themeModal").fadeOut("fast")
   $("#cover").css('display','none')
+  $("#title").val("")
+  $("#detail").val("")
+  $("#hour").val("")
+  $("#minute").val("")
 })
 
 $("#deleteAll-btn").click(function(){
@@ -506,3 +516,18 @@ function tag(obj)
   console.log(value)
   $("#title").val(value)
 }
+
+function selectColor(obj)
+{
+  let colorName = $(obj).attr("data-name")
+  $("body").removeClass()
+  $("body").addClass(colorName)
+  let a = $("#app2-section1").attr("class")
+  // $(".background2").addClass(colorName)
+  $("#themeModal").fadeOut("fast")
+  $("#cover").css('display','none')
+}
+
+$(".color").click(function(){
+  selectColor(this)
+})
