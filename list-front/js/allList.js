@@ -15,6 +15,20 @@ $(window).on("load",function(){
   } 
 })
 
+$(window).resize(function(){
+  let oneTop = $("header").offset().top + 35
+  let oneLeft = $("header").offset().left + 100
+  $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
+
+  let twoTop = $(".delete").offset().top -31
+  let twoLeft = $(".delete").offset().left + 68
+  $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
+
+  let threeTop = $(".finished").offset().top -130
+  let threeLeft = $(".finished").offset().left - 84
+  $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+})
+
 $("#confirm-btn").click(function(){
   let key =sessionStorage.key('loginUserEmail')
   // let loginUserEmail = sessionStorage.getItem(key)
@@ -522,8 +536,6 @@ function selectColor(obj)
   let colorName = $(obj).attr("data-name")
   $("body").removeClass()
   $("body").addClass(colorName)
-  let a = $("#app2-section1").attr("class")
-  // $(".background2").addClass(colorName)
   $("#themeModal").fadeOut("fast")
   $("#cover").css('display','none')
 }
@@ -531,3 +543,43 @@ function selectColor(obj)
 $(".color").click(function(){
   selectColor(this)
 })
+
+function nextHelpModal(obj)
+{
+  let oneTop = $("header").offset().top + 35
+  let oneLeft = $("header").offset().left + 100
+  $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
+
+  let twoTop = $(".delete").offset().top -31
+  let twoLeft = $(".delete").offset().left + 68
+  $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
+
+  let threeTop = $(".finished").offset().top -130
+  let threeLeft = $(".finished").offset().left - 84
+  $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+
+  if($(obj).is($(".helpModal:last")))
+  {
+    // $(obj).prevAll("helpModal").fadeOut("fast")
+    $(obj).fadeOut("fast")
+    $("#cover").css('display','none')
+    return
+  }
+  // $(obj).prevAll("helpModal").fadeOut("fast")
+  $(obj).fadeOut("fast")
+  $(obj).next().fadeIn("fast")
+}
+
+$("#help-btn").click(function(){
+  $(".helpModal:first").fadeIn("fast")
+  $("#cover").css('display','block')
+})
+
+$(".helpModal").click(function(){
+  nextHelpModal(this)
+})
+
+$(".cover").click(function(){
+  nextHelpModal($(".helpModal:visible"))
+})
+

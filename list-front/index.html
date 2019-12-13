@@ -51,10 +51,10 @@
     </svg>
 
     <!-- 页头 -->                                                                                                           
-    <header style="z-index: 1000;">
-        <div class="list-top">
+    <!-- <header style="z-index: 1000;"> -->
+        <div class="list-top" style="z-index: 1000;">
             <div class="page-header">
-                <h1 style="display: inline; font-family: verdana, sans-serif;font-size: 50px;font-variant: small-caps;">EasyList 简·单</h1><h3 style="display: inline;"><small> 一个简单、高效的ToDoList网站。</small></h3>
+                <h1 style="display: inline; font-family: verdana, sans-serif;font-size: 50px;font-variant: small-caps;">EasyList 简·单</h1><h3 style="display: inline;"><small></small></h3>
                 <div class="middle">
                     <div class="sm-container">
                         <i class="show-btn">
@@ -62,7 +62,6 @@
                         </i>
                         <div class="sm-menu">
                             <i>
-                                <!-- <svg data-toggle="modal" data-target=".bs-example-modal-sm" id="add-btn" t="1575944666631" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7551" width="32" height="32"><path d="M808.192 413.747c-14.797 0-24.576 9.83-24.576 24.576v343.808c0 29.491-19.507 49.101-49.1 49.101H243.353c-29.594 0-49.101-19.61-49.101-49.1V241.868c0-29.491 19.507-49.101 49.1-49.101h368.385c14.796 0 24.576-9.78 24.576-24.576 0-14.746-9.728-24.576-24.576-24.576h-392.96c-44.39 0-73.677 39.066-73.677 83.302v579.738c0 44.237 29.286 73.677 73.677 73.677H759.04c44.39 0 73.677-29.44 73.677-73.677V438.323c0-14.745-9.728-24.576-24.525-24.576z m-430.131 233.78c11.878 11.775 31.13 11.775 43.059 0l448.87-449.23a30.208 30.208 0 0 0 0-42.854 30.566 30.566 0 0 0-43.059 0l-448.87 449.229a30.106 30.106 0 0 0 0 42.854z" p-id="7552"></path></svg> -->
                                 <svg id="add-btn" t="1575944666631" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7551" width="32" height="32"><path d="M808.192 413.747c-14.797 0-24.576 9.83-24.576 24.576v343.808c0 29.491-19.507 49.101-49.1 49.101H243.353c-29.594 0-49.101-19.61-49.101-49.1V241.868c0-29.491 19.507-49.101 49.1-49.101h368.385c14.796 0 24.576-9.78 24.576-24.576 0-14.746-9.728-24.576-24.576-24.576h-392.96c-44.39 0-73.677 39.066-73.677 83.302v579.738c0 44.237 29.286 73.677 73.677 73.677H759.04c44.39 0 73.677-29.44 73.677-73.677V438.323c0-14.745-9.728-24.576-24.525-24.576z m-430.131 233.78c11.878 11.775 31.13 11.775 43.059 0l448.87-449.23a30.208 30.208 0 0 0 0-42.854 30.566 30.566 0 0 0-43.059 0l-448.87 449.229a30.106 30.106 0 0 0 0 42.854z" p-id="7552"></path></svg>
                             </i>
                             <i>
@@ -85,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    <!-- </header> -->
 
     <!-- 主体 -->
     <div class="list-main">
@@ -227,17 +226,17 @@
                 <input type="text" class="form-control" id="title" placeholder="title" maxlength="8">
             </div>
             <div class="form-group">
-                <span onclick="tag(this)" name="tag" style="margin-left: 6px;"><code>去图书馆</code></span>
-                <span onclick="tag(this)" name="tag"><code>玩游戏</code></span>
-                <span onclick="tag(this)" name="tag"><code>看电影</code></span>
-                <span onclick="tag(this)" name="tag"><code>背单词</code></span>
-                <span onclick="tag(this)" name="tag"><code>上课</code></span>
-                <span onclick="tag(this)" name="tag" style="margin-left: 6px;"><code>学习</code></span>
-                <span onclick="tag(this)" name="tag"><code>健身</code></span>
-                <span onclick="tag(this)" name="tag"><code>去约会</code></span>
-                <span onclick="tag(this)" name="tag"><code>下午茶</code></span>
-                <span onclick="tag(this)" name="tag"><code>购物</code></span>
-                <span onclick="tag(this)" name="tag"><code>开会</code></span>              
+                <span onclick="tag(this)" style="margin-left: 6px;"><code>去图书馆</code></span>
+                <span onclick="tag(this)"><code>玩游戏</code></span>
+                <span onclick="tag(this)"><code>看电影</code></span>
+                <span onclick="tag(this)"><code>背单词</code></span>
+                <span onclick="tag(this)"><code>上课</code></span>
+                <span onclick="tag(this)" style="margin-left: 6px;"><code>学习</code></span>
+                <span onclick="tag(this)"><code>健身</code></span>
+                <span onclick="tag(this)"><code>去约会</code></span>
+                <span onclick="tag(this)"><code>下午茶</code></span>
+                <span onclick="tag(this)"><code>购物</code></span>
+                <span onclick="tag(this)"><code>开会</code></span>              
             </div>
             <div class="row form-group">
                 <div class="col-lg-6 col-xs-6">
@@ -282,7 +281,47 @@
                 <div class="color SpringWarmth"></div>
                 <div class="color SpringWarmth"></div>
             </div>
+            <div class="form-group">
+                <label>已搁置</label>
+            </div>
         </form>
+    </div>
+
+    <!-- 帮助模态框 -->
+    <div class="leftHelpModal helpModal" style="top: 25px; right: 90px;">
+        <h4>添加按钮</h4>
+        <h5>添加待办事项</h5>
+    </div>
+    <div class="leftHelpModal helpModal" style="top: 63px; right: 90px;">
+        <h4>删除按钮</h4>
+        <h5>删除所有待办事项</h5>
+    </div>
+    <div class="leftHelpModal helpModal" style="top: 102px; right: 90px;">
+        <h4>皮肤按钮</h4>
+        <h5>更改背景色</h5>
+    </div>
+    <div class="leftHelpModal helpModal" style="top: 137px; right: 90px;">
+        <h4>反馈按钮</h4>
+        <h5>反馈建议或问题</h5>
+    </div>
+    <div class="leftHelpModal helpModal" style="top: 175px; right: 90px;">
+        <h4>登出按钮</h4>
+        <h5>退出登录</h5>
+    </div>
+    <div class="leftHelpModal helpModal" style="top: 214px; right: 90px;">
+        <h4>帮助按钮</h4>
+        <h5>查看网站功能详情</h5>
+    </div>
+    <div class="rightHelpModal helpModal" id="one" style="top: 245px; right: 200px;">
+        <h4>时间,标题,描述</h4>
+    </div>
+    <div class="rightHelpModal helpModal" id="two" >
+        <h4>删除按钮</h4>
+        <h5>删除当前待办事项</h5>
+    </div>
+    <div class="topHelpModal helpModal" id="three" style="top: 433px; right: 423px;">
+        <h4>已完成按钮</h4>
+        <h5>将当前待办事项标记为已完成</h5>
     </div>
 
     <!-- 遮罩层 -->

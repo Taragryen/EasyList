@@ -299,6 +299,96 @@ p {
   background-color: white;
 }
 
+.helpModal {
+}
+
+.leftHelpModal {
+  display: none;
+  border: 4px white dashed;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  z-index: 2000;
+  position: absolute;
+  padding: 15px;
+  color: white;
+}
+
+.leftHelpModal::before {
+  z-index: 2001;
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-top: 4px;
+  border-right: 4px;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-color: white;
+  border-style: dashed;
+  transform:rotate(45deg);
+  right: -17px;
+  top: 30px;
+}
+
+.rightHelpModal {
+  display: none;
+  border: 4px white dashed;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  z-index: 2000;
+  position: absolute;
+  padding: 15px;
+  color: white;
+}
+
+.rightHelpModal::before {
+  z-index: 2001;
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 4px;
+  border-bottom: 4px;
+  border-color: white;
+  border-style: dashed;
+  transform:rotate(45deg);
+  left: -17px;
+  top: 30px;
+}
+
+.topHelpModal {
+  display: none;
+  border: 4px white dashed;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  z-index: 2000;
+  position: absolute;
+  padding: 15px;
+  color: white;
+}
+
+.topHelpModal::before {
+  z-index: 2001;
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-top: 0px;
+  border-right: 4px;
+  border-left: 0px;
+  border-bottom: 4px;
+  border-color: white;
+  border-style: dashed;
+  transform:rotate(45deg);
+  left: 85px;
+  bottom: -18px;
+}
+
 .cover {
   display: none;
   position: absolute;
