@@ -558,16 +558,24 @@ function nextHelpModal(obj)
   let threeLeft = $(".finished").offset().left - 84
   $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
 
+  let fourTop = $(".badge").offset().top -43
+  let fourLeft = $(".badge").offset().left +50
+  $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourTop = fourTop - 60
+  fourLeft = fourLeft - 10
+  $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourLeft = fourLeft + 255
+  $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
+
   if($(obj).is($(".helpModal:last")))
   {
-    // $(obj).prevAll("helpModal").fadeOut("fast")
     $(obj).fadeOut("fast")
     $("#cover").css('display','none')
     return
   }
-  // $(obj).prevAll("helpModal").fadeOut("fast")
   $(obj).fadeOut("fast")
   $(obj).next().fadeIn("fast")
+  return
 }
 
 $("#help-btn").click(function(){
