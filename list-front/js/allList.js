@@ -1,8 +1,8 @@
 $(window).on("load",function(){
   let key =sessionStorage.key('loginUserEmail')
-  // let loginUserEmail = sessionStorage.getItem(key)
+  let loginUserEmail = sessionStorage.getItem(key)
   // let loginUserEmail = '2429747506@qq.com'
-  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  // let loginUserEmail = '20172005046@m.scnu.edu.cn'
   if(loginUserEmail)
   {
     this.flash()
@@ -50,7 +50,7 @@ $("#confirm-btn").click(function(){
   var detail = $("#detail").val()
   if(title.length == 0)
   {
-    $.growl.warning({message: "请输入标题~" });
+    $.growl.warning({message: "请输入标题~" })
     $("#title").focus()
     return
   }
@@ -349,6 +349,15 @@ $("#theme-btn").click(function(){
   $("#cover").css('display','block')
 })
 
+$("#out-btn").click(function(){
+  if(confirm("确定要退出登录吗?"))
+  {
+    let key =sessionStorage.key('loginUserEmail')
+    sessionStorage.removeItem(key)
+    window.location.href = "login.html"
+  }
+})
+
 $("#close-btn").click(function(){
   $("#addModal").fadeOut("fast")
   $("#themeModal").fadeOut("fast")
@@ -486,7 +495,7 @@ function AllFinished()
       }
       else
       {
-        str += "<span>没有已完成的任务哦~</span>"
+        str += "<span>空空如也~</span>"
       }
       $(".badge").text(data.length)
       $(".completed").html(str)
@@ -494,7 +503,7 @@ function AllFinished()
     error:function(xhr,err)
     {
       console.log('异步请求已完成列表API失败：')
-      $.growl.notice({err});
+      $.growl.error({err});
     }
   })
 }

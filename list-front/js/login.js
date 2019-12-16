@@ -1,3 +1,12 @@
+$(window).on("load",function(){
+  let key =sessionStorage.key('loginUserEmail')
+  let loginUserEmail = sessionStorage.getItem(key)
+  if(loginUserEmail)
+  {
+    window.location.href = "index.html"
+  }
+})
+
 // 登录
 $("#loginbtn").click(function(){
   //读取所有的表单输入
@@ -6,14 +15,14 @@ $("#loginbtn").click(function(){
   //验证表单输入的合法性
   if(email.length == 0)
   {
+      $.growl.warning({message: "请输入邮箱地址~"})
       $("#email").focus()
-      alert("请输入邮箱地址~")
       return
   }
   if(upwd.length == 0)
   {
+      $.growl.warning({message: "请输入密码~"})
       $("#upwd").focus()
-      alert("请输入密码~")
       return
   }
   //异步提交用户的输入给后台API
@@ -24,20 +33,21 @@ $("#loginbtn").click(function(){
       data: `email=${email}&upwd=${upwd}`,
       success:function(data,msg,xhr)
       {
-          console.log('异步请求登录API成功：')
-          alert(data.msg)
           if(data.code == 200)
           {
+            $.growl.notice({message: data.msg})
             sessionStorage.setItem('loginUserEmail',email)
             window.location.href = "index.html"
           }
           if(data.code == 403)
           {
+            $.growl.error({message: data.msg})
             $("#upwd").val("")
             $("#upwd").focus()
           }
           if(data.code == 404)
           {
+            $.growl.error({message: data.msg})
             $("#upwd").val("")
             $("#email").val("")
             $("#email").focus()
@@ -45,8 +55,7 @@ $("#loginbtn").click(function(){
       },
       error:function(xhr,err)
       {
-          console.log('异步请求登录API失败：')
-          alert(err)
+          $.growl.error({message: err})
       }
   })
 })
@@ -60,25 +69,25 @@ $("#registerbtn").click(function(){
   //验证表单输入的合法性
   if(email.length == 0)
   {
+      $.growl.warning({message: "请输入邮箱地址~"})
       $("#registerEmail").focus()
-      alert("请输入邮箱地址~")
       return
   }
   if(upwd.length == 0)
   {
+      $.growl.warning({message: "请输入密码~"})
       $("#registerPwd").focus()
-      alert("请输入密码~")
       return
   }
   if(rpwd.length == 0)
   {
+    $.growl.warning({message: "请再次输入密码~"})
     $("#registerRpwd").focus()
-    alert("请再次输入密码~")
     return
   }
   if(rpwd != upwd)
   {
-    alert("两次输入的密码不一致~")
+    $.growl.warning({message: "两次输入的密码不一致~"})
     $("#registerPwd").val("")
     $("#registerRpwd").val("")
     return
@@ -91,13 +100,11 @@ $("#registerbtn").click(function(){
       data: `email=${email}&upwd=${upwd}&rpwd=${rpwd}`,
       success:function(data,msg,xhr)
       {
-          console.log('异步请求注册API成功：')
-          alert(data.msg)
+          $.growl.notice({message: data.msg})
       },
       error:function(xhr,err)
       {
-          console.log('异步请求注册API失败：')
-          alert(err)
+          $.growl.error({message: err})
       }
   })
 })
