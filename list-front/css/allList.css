@@ -299,6 +299,23 @@ p {
   background-color: white;
 }
 
+#closeHelp-btn {
+  font-size: 20px;
+  font-weight: 900;
+  background-color:transparent;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  z-index: 2001;
+  display: none;
+  width: 120px;
+  height: 40px;
+  border: 4px white dashed;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
 .helpModal {
 }
 

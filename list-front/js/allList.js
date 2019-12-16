@@ -17,7 +17,7 @@ $(window).on("load",function(){
 
 $(window).resize(function(){
   let oneTop = $("header").offset().top + 35
-  let oneLeft = $("header").offset().left + 100
+  let oneLeft = $("header").offset().left + 135
   $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
 
   let twoTop = $(".delete").offset().top -31
@@ -27,6 +27,15 @@ $(window).resize(function(){
   let threeTop = $(".finished").offset().top -130
   let threeLeft = $(".finished").offset().left - 84
   $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+
+  let fourTop = $(".badge").offset().top -43
+  let fourLeft = $(".badge").offset().left +50
+  $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourTop = fourTop - 60
+  fourLeft = fourLeft - 10
+  $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourLeft = fourLeft + 255
+  $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
 })
 
 $("#confirm-btn").click(function(){
@@ -466,9 +475,9 @@ function AllFinished()
         console.log('异步请求已完成列表API成功：')
         for(var i=0;i<data.length;i++)
         {
-          str += `<div class="task" style="vertical-align: middle;text-align: center;margin-top: 10px;">
-                    <span style="font-size: 25px;">${data.list[i].time}</span>
-                    <span style="font-size: 25px;">${data.list[i].title}</span>
+          str += `<div class="task">
+                    <span style="font-size: 20px;">${data.list[i].time}</span>
+                    <span style="font-size: 20px;">${data.list[i].title}</span>
                     <button type="button" class="unfinished" onclick="unfinished(${data.list[i].pid})">
                       <svg t="1575900448704" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1833" width="32" height="32"><path d="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z" fill="#ffffff" p-id="1834"></path><path d="M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" fill="#ffffff" p-id="1835"></path></svg>                        
                     </button>
@@ -547,7 +556,7 @@ $(".color").click(function(){
 function nextHelpModal(obj)
 {
   let oneTop = $("header").offset().top + 35
-  let oneLeft = $("header").offset().left + 100
+  let oneLeft = $("header").offset().left + 135
   $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
 
   let twoTop = $(".delete").offset().top -31
@@ -570,6 +579,7 @@ function nextHelpModal(obj)
   if($(obj).is($(".helpModal:last")))
   {
     $(obj).fadeOut("fast")
+    $("#closeHelp-btn").css('display','none')
     $("#cover").css('display','none')
     return
   }
@@ -579,8 +589,15 @@ function nextHelpModal(obj)
 }
 
 $("#help-btn").click(function(){
+  $("#closeHelp-btn").css('display','block')
   $(".helpModal:first").fadeIn("fast")
   $("#cover").css('display','block')
+})
+
+$("#closeHelp-btn").click(function(){
+  $(".helpModal:visible").fadeOut("fast")
+  $("#cover").fadeOut("fast")
+  $(this).fadeOut("fast")
 })
 
 $(".helpModal").click(function(){
@@ -590,4 +607,5 @@ $(".helpModal").click(function(){
 $(".cover").click(function(){
   nextHelpModal($(".helpModal:visible"))
 })
+
 
