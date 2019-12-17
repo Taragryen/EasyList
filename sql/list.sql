@@ -22,6 +22,6 @@ CREATE TABLE `list_pages`  (
   `title` varchar(32) NULL,
   `detail` varchar(128) NULL,
   `email` varchar(64) NULL,
-  `isodne` int(2),
+  `isdone` int(2),
   PRIMARY KEY (`pid`)
 );
