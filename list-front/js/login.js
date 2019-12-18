@@ -1,7 +1,7 @@
 $(window).on("load",function(){
-  let key =sessionStorage.key('loginUserEmail')
-  let loginUserEmail = sessionStorage.getItem(key)
-  if(loginUserEmail)
+  let loginUserEmail = $.cookie('loginUserEmail')
+  console.log(loginUserEmail)
+  if(loginUserEmail != '' && loginUserEmail != undefined)
   {
     window.location.href = "index.html"
   }
@@ -35,8 +35,14 @@ $("#loginbtn").click(function(){
       {
           if(data.code == 200)
           {
+            //设置cookie过期时间
+            let date = new Date()
+            date.setTime(date.getTime()+(10*60*1000))
             $.growl.notice({message: data.msg})
-            sessionStorage.setItem('loginUserEmail',email)
+            $.cookie('loginUserEmail',email,{
+              expires:date,
+              path:'/'
+            })
             window.location.href = "index.html"
           }
           if(data.code == 403)
@@ -100,7 +106,23 @@ $("#registerbtn").click(function(){
       data: `email=${email}&upwd=${upwd}&rpwd=${rpwd}`,
       success:function(data,msg,xhr)
       {
-          $.growl.notice({message: data.msg})
+          if(data.code == 500)
+          {
+            $.growl.error({message: data.msg})
+            $("#registerEmail").val("")
+            $("#registerPwd").val("")
+            $("#registerRpwd").val("")
+            return
+          }
+          if(data.code == 200)
+          {
+            $.growl.notice({message: data.msg})
+            $("#registerEmail").val("")
+            $("#registerPwd").val("")
+            $("#registerRpwd").val("")
+            $("#slide-right-button").trigger('click')
+
+          }
       },
       error:function(xhr,err)
       {

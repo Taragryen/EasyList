@@ -1,9 +1,8 @@
 $(window).on("load",function(){
-  let key =sessionStorage.key('loginUserEmail')
-  let loginUserEmail = sessionStorage.getItem(key)
-  // let loginUserEmail = '2429747506@qq.com'
-  // let loginUserEmail = '20172005046@m.scnu.edu.cn'
-  if(loginUserEmail)
+  let loginUserEmail = $.cookie('loginUserEmail')
+  console.log(loginUserEmail+"!!!!!")
+  console.log(loginUserEmail == null)
+  if(loginUserEmail != '' && loginUserEmail != undefined)
   {
     this.flash()
     this.AllFinished()
@@ -39,10 +38,7 @@ $(window).on("load",function(){
 // })
 
 $("#confirm-btn").click(function(){
-  let key =sessionStorage.key('loginUserEmail')
-  // let loginUserEmail = sessionStorage.getItem(key)
-  // let loginUserEmail = '2429747506@qq.com'
-  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  let loginUserEmail = $.cookie('loginUserEmail')
   var title = $("#title").val()
   var hour = $("#hour").val()
   var minute = $("#minute").val()
@@ -122,10 +118,7 @@ function setDataActive()
 
 function flash()
 {
-  let key =sessionStorage.key('loginUserEmail')
-  // let loginUserEmail = sessionStorage.getItem(key)
-  // let loginUserEmail = '2429747506@qq.com'
-  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  let loginUserEmail = $.cookie('loginUserEmail')
   $.ajax({
     method: 'get',
     url: 'http://127.0.0.1:5050/user/list',
@@ -352,8 +345,7 @@ $("#theme-btn").click(function(){
 $("#out-btn").click(function(){
   if(confirm("确定要退出登录吗?"))
   {
-    let key =sessionStorage.key('loginUserEmail')
-    sessionStorage.removeItem(key)
+    $.cookie('loginUserEmail','',{expires:1,path:'/'})
     window.location.href = "login.html"
   }
 })
@@ -468,10 +460,7 @@ function deleteone(pid)
 
 function AllFinished()
 {
-  let key =sessionStorage.key('loginUserEmail')
-  // let loginUserEmail = sessionStorage.getItem(key)
-  // let loginUserEmail = '2429747506@qq.com'
-  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  let loginUserEmail = $.cookie('loginUserEmail')
   $.ajax({
     method: 'GET',
     url: 'http://127.0.0.1:5050/user/allfinished',
@@ -564,26 +553,26 @@ $(".color").click(function(){
 
 function nextHelpModal(obj)
 {
-  let oneTop = $("header").offset().top + 35
-  let oneLeft = $("header").offset().left + 135
-  $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
+  // let oneTop = $("header").offset().top + 35
+  // let oneLeft = $("header").offset().left + 135
+  // $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
 
-  let twoTop = $(".delete").offset().top -31
-  let twoLeft = $(".delete").offset().left + 68
-  $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
+  // let twoTop = $(".delete").offset().top -31
+  // let twoLeft = $(".delete").offset().left + 68
+  // $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
 
-  let threeTop = $(".finished").offset().top -130
-  let threeLeft = $(".finished").offset().left - 84
-  $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+  // let threeTop = $(".finished").offset().top -130
+  // let threeLeft = $(".finished").offset().left - 84
+  // $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
 
-  let fourTop = $(".badge").offset().top -43
-  let fourLeft = $(".badge").offset().left +50
-  $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
-  fourTop = fourTop - 60
-  fourLeft = fourLeft - 10
-  $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
-  fourLeft = fourLeft + 255
-  $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
+  // let fourTop = $(".badge").offset().top -43
+  // let fourLeft = $(".badge").offset().left +50
+  // $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
+  // fourTop = fourTop - 60
+  // fourLeft = fourLeft - 10
+  // $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
+  // fourLeft = fourLeft + 255
+  // $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
 
   if($(obj).is($(".helpModal:last")))
   {
