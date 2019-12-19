@@ -7,10 +7,10 @@ let mysql = require('mysql')
 //使用第三包提供的函数和对象
 //创建数据库连接池
 let pool = mysql.createPool({
-    host:       '127.0.0.1',    //主机地址
+    host:       '101.132.149.158',    //主机地址
     port:       '3306',         //端口号
     user:       'root',         //mysql用户名
-    password:   '',             //mysql密码，默认为空字符串
+    password:   'Ricardoiu18',             //mysql密码，默认为空字符串
     database:   'list',           //数据库名称
     // host:       'w.rdc.sae.sina.com.cn',    //主机地址
     // port:       '3306',         //端口号
@@ -312,6 +312,7 @@ server.post('/user/add',function(req,res){
     let detail = obj.detail
     let time = obj.time
     let email = obj.email
+    let isdone = 0
     if(!title)
     {
         output.code = 401
@@ -334,8 +335,8 @@ server.post('/user/add',function(req,res){
         return
     }
     //执行插入操作
-    let sql = 'INSERT INTO list_pages(time,title,detail,email) VALUES(?,?,?,?)'
-    pool.query(sql,[time,title,detail,email],function(err,result)
+    let sql = 'INSERT INTO list_pages(time,title,detail,email,isdone) VALUES(?,?,?,?,?)'
+    pool.query(sql,[time,title,detail,email,isdone],function(err,result)
     {
         if(err)throw err
         res.json(output)

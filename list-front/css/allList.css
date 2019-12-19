@@ -469,6 +469,20 @@ code:hover {
   transform: scale(1.1);
 }
 
+.web-name {
+  display: inline; 
+  font-family: verdana, sans-serif;
+  font-size: 30px;
+  font-variant: small-caps;
+  bottom: 18px;
+  left: 5px;
+}
+
+@media only screen and (min-width: 550px) {
+  .web-name {
+    font-size: 50px;
+  }
+}
 
 
 

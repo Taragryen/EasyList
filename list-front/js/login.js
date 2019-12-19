@@ -28,8 +28,7 @@ $("#loginbtn").click(function(){
   //异步提交用户的输入给后台API
   $.ajax({
       method: 'POST',
-      // url: 'http://ricardo.applinzi.com/user/login',
-      url: 'http://127.0.0.1:5050/user/login',
+      url: 'http://targaryenxsz.xyz:5050/user/login',
       data: `email=${email}&upwd=${upwd}`,
       success:function(data,msg,xhr)
       {
@@ -101,8 +100,7 @@ $("#registerbtn").click(function(){
   //异步提交用户的输入给后台API
   $.ajax({
       method: 'POST',
-      // url: 'http://ricardo.applinzi.com/user/register',
-      url: 'http://127.0.0.1:5050/user/register',
+      url: 'http://targaryenxsz.xyz:5050/user/register',
       data: `email=${email}&upwd=${upwd}&rpwd=${rpwd}`,
       success:function(data,msg,xhr)
       {

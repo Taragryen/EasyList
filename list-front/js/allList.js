@@ -70,8 +70,7 @@ $("#confirm-btn").click(function(){
   }
   $.ajax({
     method: 'POST',
-    // url: 'http://ricardo.applinzi.com/add',
-    url: 'http://127.0.0.1:5050/user/add',
+    url: 'http://targaryenxsz.xyz:5050/user/add',
     data: `title=${title}&time=${time}&detail=${detail}&email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
@@ -121,7 +120,7 @@ function flash()
   let loginUserEmail = $.cookie('loginUserEmail')
   $.ajax({
     method: 'get',
-    url: 'http://127.0.0.1:5050/user/list',
+    url: 'http://targaryenxsz.xyz:5050/user/list',
     data: `email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
@@ -400,7 +399,7 @@ function finished(pid)
 {
   $.ajax({
     method: 'GET',
-    url: 'http://127.0.0.1:5050/user/finished',
+    url: 'http://targaryenxsz.xyz:5050/user/finished',
     data: `pid=${pid}`,
     success:function(data,msg,xhr)
     {
@@ -421,7 +420,7 @@ function unfinished(pid)
 {
   $.ajax({
     method: 'GET',
-    url: 'http://127.0.0.1:5050/user/unfinished',
+    url: 'http://targaryenxsz.xyz:5050/user/unfinished',
     data: `pid=${pid}`,
     success:function(data,msg,xhr)
     {
@@ -442,7 +441,7 @@ function deleteone(pid)
 {
   $.ajax({
     method: 'GET',
-    url: 'http://127.0.0.1:5050/user/delete',
+    url: 'http://targaryenxsz.xyz:5050/user/delete',
     data: `pid=${pid}`,
     success:function(data,msg,xhr)
     {
@@ -463,7 +462,7 @@ function AllFinished()
   let loginUserEmail = $.cookie('loginUserEmail')
   $.ajax({
     method: 'GET',
-    url: 'http://127.0.0.1:5050/user/allfinished',
+    url: 'http://targaryenxsz.xyz:5050/user/allfinished',
     data: `email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
@@ -505,13 +504,10 @@ function deleteAll()
     //点击了否则返回
     return
   }
-  let key =sessionStorage.key('loginUserEmail')
-  // let loginUserEmail = sessionStorage.getItem(key)
-  // let loginUserEmail = '2429747506@qq.com'
-  let loginUserEmail = '20172005046@m.scnu.edu.cn'
+  let loginUserEmail = $.cookie('loginUserEmail')
   $.ajax({
     method: 'GET',
-    url: 'http://127.0.0.1:5050/user/deleteAll',
+    url: 'http://targaryenxsz.xyz:5050/user/deleteAll',
     data: `email=${loginUserEmail}`,
     success:function(data,msg,xhr)
     {
