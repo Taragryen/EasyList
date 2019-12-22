@@ -285,8 +285,10 @@ p {
 .myModal {
   border-radius: 4px;
   z-index: 2000;
-  width: 300px;
-  height: 420px;
+  min-width: 300px;
+  min-height: 420px;
+  max-width: 300px;
+  max-height: 500px;
   position: fixed;
   display: none;
   /* top: 20px; */
