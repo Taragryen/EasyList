@@ -126,8 +126,8 @@
                         </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    <div style="margin-top: 30px; margin-left: auto; margin-right: auto;height: 530px;overflow: auto;">
-                        <h3>Completed<span class="badge">0</span></h3>
+                    <div style="margin-top: 30px;height: 530px;overflow: auto;">
+                        <h3>已完成<span class="badge">0</span></h3>
                         <div class="completed">
                         </div>
                     </div>
@@ -144,16 +144,6 @@
                     <blockquote>
                         <span>Copyright © 2019 Targaryen All Rights Reserved.</span>
                     </blockquote>
-                    <!-- <a href="https://v3.bootcss.com/" style="display:block;">bootstrap</a>
-                    <a href="https://codepen.io/" style="display:block;">codepen</a> -->
-                    <dl class="dl-horizontal">
-                        <dt>bootstrap</dt>
-                        <dd>https://v3.bootcss.com/</dd>
-                    </dl>
-                    <dl class="dl-horizontal">
-                        <dt>bootstrap</dt>
-                        <dd>https://v3.bootcss.com/</dd>
-                    </dl>
                 </div>
             </div>
         </div>
@@ -163,8 +153,8 @@
     <div class="myModal" id="addModal">
         <form>
             <div class="form-group">
-                <label>title</label>
-                <input type="text" class="form-control" id="title" placeholder="title" maxlength="8">
+                <label>标题</label>
+                <input type="text" class="form-control" id="title" maxlength="8">
             </div>
             <div class="form-group">
                 <span onclick="tag(this)" style="margin-left: 6px;"><code>去图书馆</code></span>
@@ -181,16 +171,16 @@
             </div>
             <div class="row form-group">
                 <div class="col-lg-6 col-xs-6">
-                    <label>hour</label>
-                    <input type="number" class="form-control" id="hour" placeholder="hour" max="23" min="6" oninput="if(value.length>2)value=value.slice(0,2)" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    <label>时</label>
+                    <input type="number" class="form-control" id="hour" max="23" min="6" oninput="if(value.length>2)value=value.slice(0,2)" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                 </div>
                 <div class="col-lg-6 col-xs-6">
-                    <label>minute</label>
-                    <input type="number" class="form-control" id="minute" placeholder="minute" max="59" min="0" step="5" oninput="if(value.length>2)value=value.slice(0,2)" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                    <label>分</label>
+                    <input type="number" class="form-control" id="minute" max="59" min="0" step="5" oninput="if(value.length>2)value=value.slice(0,2)" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                 </div>
             </div>
             <div class="form-group">
-                <label>detail</label>
+                <label>详细</label>
                 <textarea class="form-control" id="detail" rows="3"></textarea>
             </div>
             <button class="control-button in" type="button" id="close-btn">取消</button>
@@ -198,28 +188,32 @@
         </form>
     </div>
 
+    <!-- 反馈模态框 -->
+    <div class="myModal" id="letterModal">
+        <form>
+            <div class="form-group">
+                <label>建议或反馈存在的问题</label>
+                <textarea class="form-control" id="letter" rows="13"></textarea>
+            </div>
+            <button class="control-button in" type="button" id="close2-btn">取消</button>
+            <button class="control-button up" type="button" id="confirm2-btn">确定</button>
+        </form>
+    </div>
+
     <!-- 皮肤模态框 -->
     <div class="myModal" id="themeModal">
         <form>
             <div class="form-group">
-                <label style="display: block;">SIDERBAR BACKGROUND</label>
+                <label style="display: block;">背景颜色</label>
                 <div class="color SpringWarmth" data-name="SpringWarmth"></div>
                 <div class="color WinterNeva" data-name="WinterNeva"></div>
                 <div class="color RareWind" data-name="RareWind"></div>
                 <div class="color FebruaryInk" data-name="FebruaryInk"></div>
             </div>
             <div class="form-group">
-                <label style="display: block;">WEB PAGE BACKGROUND</label>
                 <div class="color light" data-name="light"></div>
                 <div class="color dark" data-name="dark"></div>
                 <div class="color PerfectWhite" data-name="PerfectWhite"></div>
-                <div class="color SpringWarmth"></div>
-            </div>
-            <div class="form-group">
-                <label style="display: block;">LIST BACKGROUND</label>
-                <div class="color SpringWarmth"></div>
-                <div class="color SpringWarmth"></div>
-                <div class="color SpringWarmth"></div>
                 <div class="color SpringWarmth"></div>
             </div>
         </form>

@@ -16,11 +16,6 @@
     console.log(document.readyState);
     if(document.readyState=="complete")
     { 
-      //设置延迟
-      // setTimeout( ()=> {
-      //   $(".loading").fadeOut(1000);
-      //   $('.container').fadeIn(1500);
-      // },1000)
       $(".loading").fadeOut(1000);
       $('.container').fadeIn(1500);
     }
@@ -67,8 +62,8 @@
             </div>
             <p class="small">或者使用你的邮箱登录:</p>
             <form id="sign-in-form" action="#" method="POST">      
-              <input type="email" placeholder="Email" id="email"/>
-              <input type="password" placeholder="Password" id="upwd"/>
+              <input type="email" placeholder="请输入邮箱地址" id="email"/>
+              <input type="password" placeholder="请输入密码" id="upwd"/>
               <p class="forgot-password">忘记密码?</p>
               <button class="control-button in" id="loginbtn" type="button">登录</button>
             </form>
@@ -82,9 +77,9 @@
             </div>
             <p class="small">或者使用你的邮箱注册:</p>
             <form id="sign-up-form">
-              <input type="email" placeholder="email" id="registerEmail"/>
-              <input type="password" placeholder="password" id="registerPwd"/>
-              <input type="password" placeholder="repassword" id="registerRpwd"/>
+              <input type="email" placeholder="请输入邮箱地址" id="registerEmail"/>
+              <input type="password" placeholder="请输入密码" id="registerPwd"/>
+              <input type="password" placeholder="请再次输入密码" id="registerRpwd"/>
               <button class="control-button up" type="button" id="registerbtn">注册</button>
             </form>
           </div>

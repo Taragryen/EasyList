@@ -286,7 +286,7 @@ function clickNext()
       const index = elArticles.indexOf(article);
       const bg = elBackgrounds[index];
       
-      // Remove all data-active
+      // 移除所有data-active
       elApp.querySelectorAll("[data-active]").forEach(el => {
         el.removeAttribute("data-active");
       });
@@ -301,7 +301,7 @@ function clickNext()
       const index = elArticles2.indexOf(article2);
       const bg = elBackgrounds2[index];
       
-      // Remove all data-active
+      // 移除所有data-active
       elApp2.querySelectorAll("[data-active]").forEach(el => {
         el.removeAttribute("data-active");
       });
@@ -316,7 +316,7 @@ function clickNext()
       const index = elArticles3.indexOf(article3);
       const bg = elBackgrounds3[index];
       
-      // Remove all data-active
+      // 移除所有data-active
       elApp3.querySelectorAll("[data-active]").forEach(el => {
         el.removeAttribute("data-active");
       });
@@ -327,12 +327,19 @@ function clickNext()
   });
 }
 
+
+
 $(".show-btn").click(function(){
   $(".sm-menu").fadeToggle("fast")
 })
 
 $("#add-btn").click(function(){
   $("#addModal").fadeIn("fast")
+  $("#cover").css('display','block')
+})
+
+$("#letter-btn").click(function(){
+  $("#letterModal").fadeIn("fast")
   $("#cover").css('display','block')
 })
 
@@ -357,6 +364,24 @@ $("#close-btn").click(function(){
   $("#detail").val("")
   $("#hour").val("")
   $("#minute").val("")
+})
+
+$("#close2-btn").click(function(){
+  $("#letter").val("")
+  $("#letterModal").fadeOut("fast")
+  $("#cover").css('display','none')
+})
+
+$("#confirm2-btn").click(function(){
+  if($("#letter").val() == "")
+  {
+    $("#letter").focus()
+    $.growl.warning({message: "请输入您的建议或问题"})
+    return
+  }
+  $("#letterModal").fadeOut("fast")
+  $("#cover").css('display','none')
+  $.growl.notice({message: "我们已经收到您的反馈和建议~"})
 })
 
 $("#deleteAll-btn").click(function(){
