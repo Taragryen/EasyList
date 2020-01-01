@@ -14,28 +14,28 @@ $(window).on("load",function(){
   } 
 })
 
-// $(window).resize(function(){
-//   let oneTop = $("header").offset().top + 35
-//   let oneLeft = $("header").offset().left + 135
-//   $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
+$(window).resize(function(){
+  let oneTop = $("header").offset().top + 35
+  let oneLeft = $("header").offset().left + 135
+  $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
 
-//   let twoTop = $(".delete").offset().top -31
-//   let twoLeft = $(".delete").offset().left + 68
-//   $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
+  let twoTop = $(".delete").offset().top -31
+  let twoLeft = $(".delete").offset().left + 68
+  $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
 
-//   let threeTop = $(".finished").offset().top -130
-//   let threeLeft = $(".finished").offset().left - 84
-//   $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+  let threeTop = $(".finished").offset().top -130
+  let threeLeft = $(".finished").offset().left - 84
+  $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
 
-//   let fourTop = $(".badge").offset().top -43
-//   let fourLeft = $(".badge").offset().left +50
-//   $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
-//   fourTop = fourTop - 60
-//   fourLeft = fourLeft - 10
-//   $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
-//   fourLeft = fourLeft + 255
-//   $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
-// })
+  let fourTop = $(".badge").offset().top -43
+  let fourLeft = $(".badge").offset().left +50
+  $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourTop = fourTop - 60
+  fourLeft = fourLeft - 10
+  $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourLeft = fourLeft + 255
+  $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
+})
 
 $("#confirm-btn").click(function(){
   let loginUserEmail = $.cookie('loginUserEmail')
@@ -549,26 +549,26 @@ $(".color").click(function(){
 
 function nextHelpModal(obj)
 {
-  // let oneTop = $("header").offset().top + 35
-  // let oneLeft = $("header").offset().left + 135
-  // $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
+  let oneTop = $("header").offset().top + 35
+  let oneLeft = $("header").offset().left + 135
+  $("#one").css({top:oneTop+'px',left:oneLeft+'px'})
 
-  // let twoTop = $(".delete").offset().top -31
-  // let twoLeft = $(".delete").offset().left + 68
-  // $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
+  let twoTop = $(".delete").offset().top -31
+  let twoLeft = $(".delete").offset().left + 68
+  $("#two").css({top:twoTop+'px',left:twoLeft+'px'})
 
-  // let threeTop = $(".finished").offset().top -130
-  // let threeLeft = $(".finished").offset().left - 84
-  // $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
+  let threeTop = $(".finished").offset().top -130
+  let threeLeft = $(".finished").offset().left - 84
+  $("#three").css({top:threeTop+'px',left:threeLeft+'px'})
 
-  // let fourTop = $(".badge").offset().top -43
-  // let fourLeft = $(".badge").offset().left +50
-  // $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
-  // fourTop = fourTop - 60
-  // fourLeft = fourLeft - 10
-  // $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
-  // fourLeft = fourLeft + 255
-  // $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
+  let fourTop = $(".badge").offset().top -43
+  let fourLeft = $(".badge").offset().left +50
+  $("#four").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourTop = fourTop - 60
+  fourLeft = fourLeft - 10
+  $("#five").css({top:fourTop+'px',left:fourLeft+'px'})
+  fourLeft = fourLeft + 255
+  $("#Six").css({top:fourTop+'px',left:fourLeft+'px'})
 
   if($(obj).is($(".helpModal:last")))
   {
